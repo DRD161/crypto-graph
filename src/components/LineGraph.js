@@ -32,8 +32,8 @@ const data = {
 class LineGraph extends Component {
   render() {
     return (
-      <div className="graphWrapper">
-        <h2>Crypto Monitor</h2>
+      <div className="graphWrapper mt-5">
+        <h2>Weekly Price Fluctuation</h2>
         <Line data={data} />
       </div>
     );
