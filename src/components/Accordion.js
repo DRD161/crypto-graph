@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { UncontrolledCollapse, CardBody, Card } from "reactstrap";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Chevron from "./Chevron";
 
 class Accordion extends Component {
   constructor(props) {
@@ -10,13 +10,8 @@ class Accordion extends Component {
 
   render() {
     return (
-      <div className="accordion-wrapper container text-center">
-        <FontAwesomeIcon
-          id="toggler"
-          className="plus-icon"
-          icon="plus"
-          size="md"
-        />
+      <div className="accordion-wrapper container text-center mt-5">
+        <Chevron />
         {/* Using UncontrolledCollapse since this
         component doesn't need to handle state */}
         <UncontrolledCollapse toggler="#toggler">
@@ -26,8 +21,8 @@ class Accordion extends Component {
             <CardBody className="card-body text-left">
               Anim pariatur cliche reprehenderit, enim eiusmod high life
               accusamus terry richardson ad squid. Nihil anim keffiyeh
-              helvetica, craft beer labore wes anderson cred nesciunt
-              sapiente ea proident.
+              helvetica, craft beer labore wes anderson cred nesciunt sapiente
+              ea proident.
             </CardBody>
           </Card>
         </UncontrolledCollapse>

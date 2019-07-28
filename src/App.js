@@ -4,9 +4,9 @@ import "./App.css";
 import LineGraph from "./components/LineGraph";
 import Accordion from "./components/Accordion";
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
 
-library.add(faPlus);
+library.add(faChevronDown);
 
 function App() {
   return (
