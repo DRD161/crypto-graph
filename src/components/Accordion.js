@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { UncontrolledCollapse, CardBody, Card } from "reactstrap";
+import { UncontrolledCollapse, Card } from "reactstrap";
 import Chevron from "./Chevron";
 
 class Accordion extends Component {
@@ -18,12 +18,6 @@ class Accordion extends Component {
           <Card className="card">
             {/* Allows LineGraph component to be nested inside of the Card component */}
             {this.props.children}
-            <CardBody className="card-body text-left">
-              Anim pariatur cliche reprehenderit, enim eiusmod high life
-              accusamus terry richardson ad squid. Nihil anim keffiyeh
-              helvetica, craft beer labore wes anderson cred nesciunt sapiente
-              ea proident.
-            </CardBody>
           </Card>
         </UncontrolledCollapse>
       </div>
