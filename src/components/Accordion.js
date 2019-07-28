@@ -1,32 +1,36 @@
 import React, { Component } from "react";
-import { Collapse, CardBody, Card } from "reactstrap";
+import { UncontrolledCollapse, CardBody, Card } from "reactstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class Accordion extends Component {
   constructor(props) {
     super(props);
-    this.toggle = this.toggle.bind(this);
     this.state = { collapse: false };
-  }
-
-  toggle() {
-    this.setState(state => ({ collapse: !state.collapse }));
   }
 
   render() {
     return (
-      <div className="accordion-wrapper">
-        <FontAwesomeIcon className="caret-icon" onClick={this.toggle} icon="caret-down" size="2x" />
-        <Collapse isOpen={this.state.collapse}>
-          <Card>
-            <CardBody>
+      <div className="accordion-wrapper container text-center">
+        <FontAwesomeIcon
+          id="toggler"
+          className="plus-icon"
+          icon="plus"
+          size="md"
+        />
+        {/* Using UncontrolledCollapse since this
+        component doesn't need to handle state */}
+        <UncontrolledCollapse toggler="#toggler">
+          <Card className="card">
+            {/* Allows LineGraph component to be nested inside of the Card component */}
+            {this.props.children}
+            <CardBody className="card-body text-left">
               Anim pariatur cliche reprehenderit, enim eiusmod high life
               accusamus terry richardson ad squid. Nihil anim keffiyeh
-              helvetica, craft beer labore wes anderson cred nesciunt sapiente
-              ea proident.
+              helvetica, craft beer labore wes anderson cred nesciunt
+              sapiente ea proident.
             </CardBody>
           </Card>
-        </Collapse>
+        </UncontrolledCollapse>
       </div>
     );
   }
