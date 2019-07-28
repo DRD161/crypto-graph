@@ -28,7 +28,7 @@ class Chevron extends Component {
         rotate={this.state.rotate}
         onClick={this.handleChevronDoneRotating}
       >
-        <FontAwesomeIcon id="toggler" icon="chevron-down" size="lg" />
+        <FontAwesomeIcon id="toggler" className="chevron-down" icon="chevron-down" size="lg" />
       </ChevronWrapper>
     );
   }

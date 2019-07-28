@@ -5,11 +5,16 @@
 }
 
 .accordion-wrapper {
-  padding: 30px 0;
+  padding: 20px 0 15px 0px;
   box-shadow: 0px 1px 3px 1px rgb(94, 93, 93);
   border-radius: 3px;
 }
 
-#chevron-down {
+.chevron-down {
   cursor: pointer;
+}
+
+.bitcoin-symbol {
+  font-weight: 700;
+  font-size: 18px;
 }

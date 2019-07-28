@@ -2,7 +2,15 @@ import React, { Component } from "react";
 import { Line } from "react-chartjs-2";
 
 const data = {
-  labels: ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+  labels: [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday"
+  ],
   datasets: [
     {
       label: "My First dataset",
@@ -24,7 +32,7 @@ const data = {
       pointRadius: 1,
       pointHitRadius: 10,
       // API data goes here
-      data: [65, 59, 80, 81, 56, 55, 40],
+      data: [65, 59, 80, 81, 56, 55, 40]
     }
   ]
 };

@@ -11,6 +11,9 @@ class Accordion extends Component {
   render() {
     return (
       <div className="accordion-wrapper container text-center mt-5">
+        {/* Hard coded placeholder. Use API to get name and abbreviation of coin */}
+        <p className="text-left bitcoin-symbol">Bitcoin</p>
+        <p className="text-left bitcoin-symbol">(BTC)</p>
         <Chevron />
         {/* Using UncontrolledCollapse since this
         component doesn't need to handle state */}
