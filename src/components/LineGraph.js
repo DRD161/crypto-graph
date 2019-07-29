@@ -13,7 +13,6 @@ const data = {
   ],
   datasets: [
     {
-      label: "My First dataset",
       fill: false,
       lineTension: 0.1,
       backgroundColor: "rgba(75,192,192,0.4)",
@@ -41,7 +40,6 @@ class LineGraph extends Component {
   render() {
     return (
       <div className="graphWrapper mt-5">
-        <h2>Weekly Price Fluctuation</h2>
         <Line data={data} />
       </div>
     );
