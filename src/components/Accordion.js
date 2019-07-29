@@ -11,24 +11,27 @@ class Accordion extends Component {
   render() {
     return (
       <div className="accordion-wrapper container text-center mt-5">
-        {/* Hard coded placeholder. Use API to get name and abbreviation of coin */}
         <div className="row">
           <div className="col-6">
+            {/* Hard coded placeholder. Use API to get name and abbreviation of coin */}
             <p className="text-left mt-3 bitcoin-symbol">Bitcoin(BTC)</p>
           </div>
           <div className="col-6">
+            {/* Hard coded placeholder. Use API to get price of coin */}
             <p className="text-right mt-3 bitcoin-symbol">Price Here</p>
           </div>
         </div>
         <div className="row">
           <div className="col-12">
-            <Chevron />
+            <Chevron className="chevron-icon" />
           </div>
-          {/* Using UncontrolledCollapse since this
-        component doesn't need to handle state */}
           <div className="col-12">
+            {/* Using UncontrolledCollapse since this
+            component doesn't need to handle state */}
             <UncontrolledCollapse toggler="#toggler">
-              <CardHeader className="mt-3"><h3>Bitcoin: Week in review</h3></CardHeader>
+              <CardHeader className="mt-3">
+                <h3>Bitcoin: Week in review</h3>
+              </CardHeader>
               <Card className="card">
                 {/* Allows LineGraph component to be nested inside of the Card component */}
                 {this.props.children}
