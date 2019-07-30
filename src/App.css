@@ -1,20 +1,18 @@
-.graphWrapper {
-  text-align: center;
-  width: 75%;
-  margin: 0 auto;
+body {
+  background-color: #1d1f2e !important;
 }
 
-.accordion-wrapper {
-  padding: 5px 0 5px 0px;
-  box-shadow: 0px 1px 3px 1px rgb(94, 93, 93);
-  border-radius: 3px;
-}
-
-.chevron-down {
-  cursor: pointer;
+.graph-wrapper {
+  width: 60% !important;
+  position: relative;
+  border-radius: 5px;
+  background-color: #292a3e;
+  margin-left: 50px !important;
+  padding-bottom: 20px;
 }
 
 .bitcoin-symbol {
   font-weight: 700;
+  color: #87889c;
   font-size: 18px;
 }
