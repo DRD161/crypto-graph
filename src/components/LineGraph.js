@@ -1,34 +1,17 @@
 import React, { Component } from "react";
 import Chart from "chart.js";
-import axios from "axios";
 
-class LineGraph extends Component {
+export default class LineGraph extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      price: []
+      chartData: []
     };
   }
 
   chartRef = React.createRef();
 
   componentDidMount() {
-    // Make api request using axios
-    axios
-      .get(
-        "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD&api_key{13deafbe04054f2950faff5dc43678eda26c37c84c156e8e559af203456d3b5a}"
-      )
-      .then(response => {
-        console.log(response);
-        this.setState({
-          price: response
-        });
-      })
-      .catch(function(error) {
-        console.log(error);
-      });
-
-    // Create gradient background
     const myChartRef = this.chartRef.current.getContext("2d");
     const gradient = myChartRef.createLinearGradient(20, 500, 10, 20);
     gradient.addColorStop(0, "#75C6FF");
@@ -55,29 +38,24 @@ class LineGraph extends Component {
         }
       }
     });
-
     new Chart(myChartRef, {
       type: "line",
       data: {
         //Bring in data
-        labels: ["Jan", "Feb", "March", "April", "May"],
+        labels: ["Jan", "Feb", "March"],
         datasets: [
           {
-            label: "My First dataset",
+            data: this.state.chartData,
             backgroundColor: gradient,
             pointBackgroundColor: "#fff",
             pointBorderColor: gradient,
             pointRadius: "5",
             hoverBackgroundColor: "#75C6FF",
-            hoverBorderColor: gradient,
-            data: [65, 59, 80, 81, 56, 55, 40]
+            hoverBorderColor: gradient
           }
         ]
       },
       options: {
-        chartArea: {
-          backgroundColor: ""
-        },
         legend: {
           display: false
         },
@@ -105,6 +83,19 @@ class LineGraph extends Component {
         }
       }
     });
+    const getChartData = () => {
+      fetch(
+        "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD"
+      )
+        .then(response => {
+          return response.json();
+        })
+        .then(myJson => {
+          this.setState({ chartData: myJson });
+          console.log(JSON.stringify(myJson));
+        });
+    };
+    getChartData();
   }
   render() {
     return (
@@ -114,5 +105,3 @@ class LineGraph extends Component {
     );
   }
 }
-
-export default LineGraph;
