@@ -9,10 +9,18 @@ export default class LineGraph extends Component {
     };
   }
 
-  chartRef = React.createRef();
+  chart = React.createRef();
+
+  // Use this function to add new data to chart? Not sure how to implement
+  /* addData(chart, data) {
+    chart.data.datasets.forEach(dataset => {
+      dataset.data.push(data);
+    });
+    chart.update();
+  } */
 
   componentDidMount() {
-    const myChartRef = this.chartRef.current.getContext("2d");
+    const myChartRef = this.chart.current.getContext("2d");
     const gradient = myChartRef.createLinearGradient(20, 500, 10, 20);
     gradient.addColorStop(0, "#75C6FF");
     gradient.addColorStop(1, "#3E0B80");
@@ -56,6 +64,7 @@ export default class LineGraph extends Component {
         ]
       },
       options: {
+        responsive: true,
         legend: {
           display: false
         },
@@ -91,7 +100,8 @@ export default class LineGraph extends Component {
           return response.json();
         })
         .then(myJson => {
-          this.setState({ chartData: myJson });
+          const bitcoinPrice = myJson.BTC.USD;
+          this.setState({ chartData: bitcoinPrice });
           console.log(JSON.stringify(myJson));
         });
     };
@@ -100,7 +110,7 @@ export default class LineGraph extends Component {
   render() {
     return (
       <div>
-        <canvas id="myChart" ref={this.chartRef} />
+        <canvas id="myChart" ref={this.chart} />
       </div>
     );
   }
