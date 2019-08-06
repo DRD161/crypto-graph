@@ -2,6 +2,11 @@ import React, { Component } from "react";
 import Chart from "chart.js";
 
 class LineGraph extends Component {
+
+  constructor(props){
+    super(props)
+    this.state = { chart :null }
+  }
   chart = React.createRef();
 
   componentDidMount() {
@@ -31,7 +36,7 @@ class LineGraph extends Component {
         }
       }
     });
-    new Chart(myChartRef, {
+    let thechart = new Chart(myChartRef, {
       type: "line",
       data: {
         labels: ["Jan", "Feb", "March"],
@@ -76,7 +81,18 @@ class LineGraph extends Component {
         }
       }
     });
+    this.setState({ chart: thechart })
   }
+  componentWillReceiveProps(nextProps, nextContext) {
+    if(nextProps.chartData !== []) {
+      this.state.chart.data.datasets.forEach((dataset) => {
+        dataset.data.push(nextProps.chartData);
+      });
+      this.state.chart.update();
+    }
+  }
+
+
   render() {
     return (
       <div>
