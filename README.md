@@ -1,6 +1,6 @@
-This is a crypto currency price tracking dashboard made using React.js, Chart.js, Reactstrap & Axios.
+This is a crypto currency price tracking dashboard made using React.js, Chart.js, & Reactstrap.
 The graph's populate using data retrieved from the CryptoCompare API to show price fluctuations throughout the week.
-I made add eadditional functionality such as the option to view daily,monthly price data, etc.
+I may add additional functionality such as the option to view daily,monthly price data, etc.
 
 
 
