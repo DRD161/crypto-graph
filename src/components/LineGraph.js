@@ -1,23 +1,8 @@
 import React, { Component } from "react";
 import Chart from "chart.js";
 
-export default class LineGraph extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      chartData: []
-    };
-  }
-
+class LineGraph extends Component {
   chart = React.createRef();
-
-  // Use this function to add new data to chart? Not sure how to implement
-  /* addData(chart, data) {
-    chart.data.datasets.forEach(dataset => {
-      dataset.data.push(data);
-    });
-    chart.update();
-  } */
 
   componentDidMount() {
     const myChartRef = this.chart.current.getContext("2d");
@@ -49,17 +34,16 @@ export default class LineGraph extends Component {
     new Chart(myChartRef, {
       type: "line",
       data: {
-        //Bring in data
         labels: ["Jan", "Feb", "March"],
         datasets: [
           {
-            data: this.state.chartData,
             backgroundColor: gradient,
             pointBackgroundColor: "#fff",
             pointBorderColor: gradient,
             pointRadius: "5",
             hoverBackgroundColor: "#75C6FF",
-            hoverBorderColor: gradient
+            hoverBorderColor: gradient,
+            data: this.props.chartData
           }
         ]
       },
@@ -92,20 +76,6 @@ export default class LineGraph extends Component {
         }
       }
     });
-    const getChartData = () => {
-      fetch(
-        "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD"
-      )
-        .then(response => {
-          return response.json();
-        })
-        .then(myJson => {
-          const bitcoinPrice = myJson.BTC.USD;
-          this.setState({ chartData: bitcoinPrice });
-          console.log(JSON.stringify(myJson));
-        });
-    };
-    getChartData();
   }
   render() {
     return (
@@ -115,3 +85,5 @@ export default class LineGraph extends Component {
     );
   }
 }
+
+export default LineGraph;
