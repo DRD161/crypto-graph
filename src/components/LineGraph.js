@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import Chart from "chart.js";
 
 class LineGraph extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { chart: null };
+  }
   chart = React.createRef();
 
   componentDidMount() {
@@ -31,10 +35,10 @@ class LineGraph extends Component {
         }
       }
     });
-    new Chart(myChartRef, {
+    let theChart = new Chart(myChartRef, {
       type: "line",
       data: {
-        labels: ["Jan", "Feb", "March"],
+        labels: [],
         datasets: [
           {
             backgroundColor: gradient,
@@ -76,7 +80,16 @@ class LineGraph extends Component {
         }
       }
     });
+    this.setState({ chart: theChart });
   }
+  componentWillReceiveProps(nextProps, nextContext) {
+    // update chart according to prop change
+    this.state.chart.data.datasets.forEach(dataset => {
+      dataset.data.push(nextProps.chartData);
+    });
+    this.state.chart.update();
+  }
+
   render() {
     return (
       <div>
