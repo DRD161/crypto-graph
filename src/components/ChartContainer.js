@@ -10,7 +10,7 @@ class ChartContainer extends Component {
 
   componentDidMount() {
     fetch(
-      "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC,ETH&tsyms=USD"
+      "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=USD"
     )
       .then(response => {
         return response.json();

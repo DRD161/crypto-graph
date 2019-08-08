@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import Chart from "chart.js";
 
 class LineGraph extends Component {
-
-  constructor(props){
-    super(props)
-    this.state = { chart :null }
+  constructor(props) {
+    super(props);
+    this.state = { chart: null };
   }
+  
   chart = React.createRef();
 
   componentDidMount() {
@@ -36,10 +36,11 @@ class LineGraph extends Component {
         }
       }
     });
-    let thechart = new Chart(myChartRef, {
+
+    let theChart = new Chart(myChartRef, {
       type: "line",
       data: {
-        labels: ["Jan", "Feb", "March"],
+        labels: [],
         datasets: [
           {
             backgroundColor: gradient,
@@ -81,6 +82,7 @@ class LineGraph extends Component {
         }
       }
     });
+    
     this.setState({ chart: thechart })
   }
   componentWillReceiveProps(nextProps, nextContext) {
@@ -90,9 +92,7 @@ class LineGraph extends Component {
       });
       this.state.chart.update();
     }
-  }
-
-
+    
   render() {
     return (
       <div>
