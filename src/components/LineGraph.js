@@ -6,7 +6,6 @@ class LineGraph extends Component {
     super(props);
     this.state = { chart: null };
   }
-  
   chart = React.createRef();
 
   componentDidMount() {
@@ -36,7 +35,6 @@ class LineGraph extends Component {
         }
       }
     });
-
     let theChart = new Chart(myChartRef, {
       type: "line",
       data: {
@@ -82,17 +80,16 @@ class LineGraph extends Component {
         }
       }
     });
-    
-    this.setState({ chart: thechart })
+    this.setState({ chart: theChart });
   }
   componentWillReceiveProps(nextProps, nextContext) {
-    if(nextProps.chartData !== []) {
-      this.state.chart.data.datasets.forEach((dataset) => {
-        dataset.data.push(nextProps.chartData);
-      });
-      this.state.chart.update();
-    }
-    
+    // update chart according to prop change
+    this.state.chart.data.datasets.forEach(dataset => {
+      dataset.data.push(nextProps.chartData);
+    });
+    this.state.chart.update();
+  }
+
   render() {
     return (
       <div>
