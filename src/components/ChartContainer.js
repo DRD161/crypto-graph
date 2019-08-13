@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import LineGraph from "./LineGraph";
+import axios from "axios";
 
 class ChartContainer extends Component {
   constructor(props) {
@@ -9,17 +10,19 @@ class ChartContainer extends Component {
   }
 
   componentDidMount() {
-    fetch(
-      "https://min-api.cryptocompare.com/data/pricemulti?fsyms=BTC&tsyms=USD"
-    )
+    axios
+      .get(
+        "https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&aggregate=6&limit=6"
+      )
       .then(response => {
-        return response.json();
-      })
-      .then(myJson => {
-        const bitcoinPrice = myJson.BTC.USD;
+        console.log(response);
+        console.log(response.data.Data[0].close);
+        const bitcoinPrice = response.data.Data[0].close;
         this.setState({ chartData: bitcoinPrice });
-        console.log(JSON.stringify(myJson));
       });
+    // .catch(error => {
+    //   console.log(error);
+    // });
   }
 
   render() {
