@@ -12,17 +12,13 @@ class ChartContainer extends Component {
   componentDidMount() {
     axios
       .get(
-        "https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&aggregate=6&limit=6"
+        "https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=7"
       )
       .then(response => {
-        console.log(response);
-        console.log(response.data.Data[0].close);
-        const bitcoinPrice = response.data.Data[0].close;
+        const bitcoinPrice = response.data.Data.map(price => price.close);
+        console.log(bitcoinPrice);
         this.setState({ chartData: bitcoinPrice });
       });
-    // .catch(error => {
-    //   console.log(error);
-    // });
   }
 
   render() {

@@ -82,7 +82,7 @@ class LineGraph extends Component {
     });
     this.setState({ chart: theChart });
   }
-  componentWillReceiveProps(nextProps, nextContext) {
+  componentWillReceiveProps(nextProps) {
     // update chart according to prop change
     this.state.chart.data.datasets.forEach(dataset => {
       dataset.data.push(nextProps.chartData);
