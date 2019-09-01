@@ -38,7 +38,7 @@ class LineGraph extends Component {
     let theChart = new Chart(myChartRef, {
       type: "line",
       data: {
-        labels: [],
+        labels: [1, 2, 3, 4, 5, 6, 7],
         datasets: [
           {
             backgroundColor: gradient,
@@ -82,12 +82,12 @@ class LineGraph extends Component {
     });
     this.setState({ chart: theChart });
   }
-  componentWillReceiveProps(nextProps, nextContext) {
+  componentWillReceiveProps(nextProps) {
     // update chart according to prop change
     this.state.chart.data.datasets.forEach(dataset => {
       dataset.data.push(nextProps.chartData);
+      this.state.chart.update();
     });
-    this.state.chart.update();
   }
 
   render() {
