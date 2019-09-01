@@ -38,7 +38,7 @@ class LineGraph extends Component {
     let theChart = new Chart(myChartRef, {
       type: "line",
       data: {
-        labels: [1, 2, 3, 4, 5, 6, 7],
+        labels: ["Day1", "Day2", "Day3", "Day4", "Day5", "Day6", "Day7"],
         datasets: [
           {
             backgroundColor: gradient,
