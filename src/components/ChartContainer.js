@@ -1,60 +1,102 @@
 import React, { Component } from "react";
-import { Container, Row, Col } from "reactstrap";
-import LineGraph from "./LineGraph";
-import axios from "axios";
+import Chart from "chart.js";
 
-class ChartContainer extends Component {
+class LineGraph extends Component {
   constructor(props) {
     super(props);
-    this.state = { chartData: [] };
+    this.state = { chart: null };
   }
+  chart = React.createRef();
 
   componentDidMount() {
-    axios
-      .get(
-<<<<<<< HEAD
-        "https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&aggregate=1&limit=7"
-      )
-      .then(response => {
-        const bitcoinPrice = response.data.Data.map(price => {
-          console.log(price.close);
-          return this.state.chartData.push(price.close);
-        });
-=======
-        "https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&limit=7"
-      )
-      .then(response => {
-        const bitcoinPrice = response.data.Data.map(price => price.close);
-        console.log(bitcoinPrice);
->>>>>>> 341f45180016e3589ea8244db003087df7221608
-        this.setState({ chartData: bitcoinPrice });
-      });
+    const myChartRef = this.chart.current.getContext("2d");
+    const gradient = myChartRef.createLinearGradient(20, 500, 10, 20);
+    gradient.addColorStop(0, "#75C6FF");
+    gradient.addColorStop(1, "#3E0B80");
+    // Custom plugin to change chart area background color
+    Chart.pluginService.register({
+      beforeDraw: function(chart) {
+        if (
+          chart.config.options.chartArea &&
+          chart.config.options.chartArea.backgroundColor
+        ) {
+          const ctx = chart.chart.ctx;
+          const chartArea = chart.chartArea;
+
+          ctx.save();
+          ctx.fillStyle = chart.config.options.chartArea.backgroundColor;
+          ctx.fillRect(
+            chartArea.left,
+            chartArea.top,
+            chartArea.right - chartArea.left,
+            chartArea.bottom - chartArea.top
+          );
+          ctx.restore();
+        }
+      }
+    });
+    let theChart = new Chart(myChartRef, {
+      type: "line",
+      data: {
+        labels: [1, 2, 3, 4, 5, 6, 7],
+        datasets: [
+          {
+            backgroundColor: gradient,
+            pointBackgroundColor: "#fff",
+            pointBorderColor: gradient,
+            pointRadius: "5",
+            hoverBackgroundColor: "#75C6FF",
+            hoverBorderColor: gradient,
+            data: this.props.chartData
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        legend: {
+          display: false
+        },
+        scales: {
+          xAxes: [
+            {
+              gridLines: {
+                color: "#535356"
+              },
+              ticks: {
+                fontColor: "#87889C"
+              }
+            }
+          ],
+          yAxes: [
+            {
+              gridLines: {
+                color: "#535356"
+              },
+              ticks: {
+                fontColor: "#87889C"
+              }
+            }
+          ]
+        }
+      }
+    });
+    this.setState({ chart: theChart });
+  }
+  componentWillReceiveProps(nextProps) {
+    // update chart according to prop change
+    this.state.chart.data.datasets.forEach(dataset => {
+      dataset.data.push(nextProps.chartData);
+      this.state.chart.update();
+    });
   }
 
   render() {
-    const { chartData } = this.state;
     return (
       <div>
-        <Container className="graph-wrapper text-center mt-5" fluid>
-          <Row>
-            <Col className="mt-3" md="12">
-              {/* Hard coded placeholder. Use API to get name and abbreviation of coin */}
-              <p className="text-left mt-3 bitcoin-symbol">Bitcoin(BTC)</p>
-            </Col>
-            <Col md="12">
-              {/* Hard coded placeholder. Use API to get price of coin */}
-              <p className="text-left mt-3 bitcoin-symbol">Price Here</p>
-            </Col>
-          </Row>
-          <Row>
-            <Col sm="12">
-              <LineGraph chartData={chartData} />
-            </Col>
-          </Row>
-        </Container>
+        <canvas id="myChart" ref={this.chart} />
       </div>
     );
   }
 }
 
-export default ChartContainer;
+export default LineGraph;
