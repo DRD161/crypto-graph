@@ -53,7 +53,7 @@ class LineGraph extends Component {
       },
       options: {
         tooltips: {
-          // add callback function to add $ sign to tooltips
+          // callback function to add $ sign to tooltips
           callbacks: {
             label: function(tooltipItems) {
               return "$" + tooltipItems.yLabel.toLocaleString();
@@ -82,6 +82,7 @@ class LineGraph extends Component {
                 color: "#535356"
               },
               ticks: {
+                // callback function to add $ to y-axis
                 userCallback: function(tick) {
                   return " $" + tick.toLocaleString();
                 },
