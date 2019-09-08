@@ -38,7 +38,7 @@ class LineGraph extends Component {
     let theChart = new Chart(myChartRef, {
       type: "line",
       data: {
-        labels: ["Day1", "Day2", "Day3", "Day4", "Day5", "Day6", "Day7"],
+        labels: this.props.chartLabels,
         datasets: [
           {
             backgroundColor: gradient,
@@ -52,6 +52,14 @@ class LineGraph extends Component {
         ]
       },
       options: {
+        tooltips: {
+          // add callback function to add $ sign to tooltips
+          callbacks: {
+            label: function(tooltipItems) {
+              return "$" + tooltipItems.yLabel.toLocaleString();
+            }
+          }
+        },
         responsive: true,
         legend: {
           display: false
@@ -63,6 +71,7 @@ class LineGraph extends Component {
                 color: "#535356"
               },
               ticks: {
+                padding: 10,
                 fontColor: "#87889C"
               }
             }
@@ -73,6 +82,9 @@ class LineGraph extends Component {
                 color: "#535356"
               },
               ticks: {
+                userCallback: function(tick) {
+                  return " $" + tick.toLocaleString();
+                },
                 fontColor: "#87889C"
               }
             }
@@ -86,6 +98,7 @@ class LineGraph extends Component {
     // update chart according to prop change
     this.state.chart.data.datasets.forEach(dataset => {
       dataset.data.push(nextProps.chartData);
+      dataset.data.push(nextProps.chartLabels);
       this.state.chart.update();
     });
   }
