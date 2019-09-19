@@ -52,6 +52,7 @@ class LineGraph extends Component {
         ]
       },
       options: {
+        maintainAspectRatio: false,
         tooltips: {
           // callback function to add $ sign to tooltips
           callbacks: {
@@ -79,7 +80,7 @@ class LineGraph extends Component {
           yAxes: [
             {
               gridLines: {
-                color: "#535356"
+                drawOnChartArea: false
               },
               ticks: {
                 // callback function to add $ to y-axis
@@ -106,8 +107,8 @@ class LineGraph extends Component {
 
   render() {
     return (
-      <div>
-        <canvas id="myChart" ref={this.chart} />
+      <div className="canvas-wrapper">
+        <canvas id="myLineChart" ref={this.chart} />
       </div>
     );
   }

@@ -2,17 +2,34 @@ body {
   background-color: #1d1f2e !important;
 }
 
-.graph-wrapper {
-  width: 60% !important;
+.App {
+  max-width: 1600px;
+  margin: auto;
+}
+
+#myLineChart {
+  height: 400px;
+}
+
+.line-graph-wrapper {
+  /* width: 80% !important; */
   position: relative;
   border-radius: 5px;
-  background-color: #292a3e;
-  margin-left: 50px !important;
+  /* background-color: #292a3e; */
+  padding-bottom: 20px;
+  margin: 0;
+}
+
+.bar-graph-wrapper {
+  /* width: 40% !important; */
+  position: relative;
+  border-radius: 5px;
+  /* background-color: #292a3e; */
   padding-bottom: 20px;
 }
 
 .bitcoin-symbol {
   font-weight: 700;
   color: #87889c;
-  font-size: 18px;
+  font-size: 14px;
 }
