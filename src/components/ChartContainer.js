@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import LineGraph from "./LineGraph";
 import BarGraph from "./BarGraph";
+import DoughnutGraph from "./DoughnutGraph";
 
 import axios from "axios";
 
@@ -82,6 +83,12 @@ class ChartContainer extends Component {
             <Row>
               <Col sm="12" md="6">
                 <BarGraph chartData={chartData} chartLabels={chartLabels} />
+              </Col>
+              <Col sm="12" md="6">
+                <DoughnutGraph
+                  chartData={chartData}
+                  chartLabels={chartLabels}
+                />
               </Col>
             </Row>
           </Container>
