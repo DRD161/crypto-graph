@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
 import LineGraph from "./LineGraph";
 import BarGraph from "./BarGraph";
-import DoughnutGraph from "./DoughnutGraph";
 
 import axios from "axios";
 
@@ -24,6 +23,7 @@ class ChartContainer extends Component {
         )
       ])
       .then(response => {
+        console.log(response[1]);
         // convert API price data to dollar amount
         const coinPrice =
           "$" +
@@ -54,16 +54,14 @@ class ChartContainer extends Component {
     const { singlePrice } = this.state;
     return (
       <div>
-        <Container className="line-graph-wrapper text-center mt-5">
+        <Container className="line-graph-wrapper text-center" fluid>
           <Row className="px-5">
             <Col md="6">
-              <p className="text-left bitcoin-symbol">Bitcoin</p>
-              <p className="text-left bitcoin-symbol">
-                Current Price: {singlePrice[2]}
-              </p>
+              <h5 className="text-left font-styles">Bitcoin</h5>
+              <h2 className="text-left font-styles">{singlePrice[2]}</h2>
             </Col>
-            <Col md="6">
-              <p className="text-right bitcoin-symbol">Last 7 days:</p>
+            <Col md="6" className="align-self-end">
+              <p className="text-right font-styles">Last 7 days:</p>
             </Col>
           </Row>
           <Row>
@@ -71,27 +69,13 @@ class ChartContainer extends Component {
               <LineGraph chartData={chartData} chartLabels={chartLabels} />
             </Col>
           </Row>
-          <Container className="bar-graph-wrapper text-center mt-3">
-            <Row className="px-5">
-              <Col md="3">
-                <p className="text-left bitcoin-symbol">Bitcoin</p>
-                <p className="text-left bitcoin-symbol">
-                  Current Price: {singlePrice[2]}
-                </p>
-              </Col>
-            </Row>
-            <Row>
-              <Col sm="12" md="6">
-                <BarGraph chartData={chartData} chartLabels={chartLabels} />
-              </Col>
-              <Col sm="12" md="6">
-                <DoughnutGraph
-                  chartData={chartData}
-                  chartLabels={chartLabels}
-                />
-              </Col>
-            </Row>
-          </Container>
+        </Container>
+        <Container className="text-center mt-3" fluid>
+          <Row className="mt-3">
+            <Col className="bar-graph-wrapper" sm="12" md="6">
+              <BarGraph chartData={chartData} chartLabels={chartLabels} />
+            </Col>
+          </Row>
         </Container>
       </div>
     );

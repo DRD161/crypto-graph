@@ -69,7 +69,7 @@ class LineGraph extends Component {
           xAxes: [
             {
               gridLines: {
-                color: "#535356"
+                display: false
               },
               ticks: {
                 padding: 10,
@@ -80,7 +80,7 @@ class LineGraph extends Component {
           yAxes: [
             {
               gridLines: {
-                drawOnChartArea: false
+                color: "#535356"
               },
               ticks: {
                 // callback function to add $ to y-axis
