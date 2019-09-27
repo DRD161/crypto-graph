@@ -20,10 +20,14 @@ class ChartContainer extends Component {
         ),
         axios.get(
           "https://min-api.cryptocompare.com/data/price?fsym=BTC&tsyms=USD"
+        ),
+        axios.get(
+          "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC&tsyms=USD"
         )
       ])
       .then(response => {
         console.log(response[1]);
+        console.log(response[2].data.RAW.BTC.USD.LOW24HOUR);
         // convert API price data to dollar amount
         const coinPrice =
           "$" +
@@ -54,7 +58,7 @@ class ChartContainer extends Component {
     const { singlePrice } = this.state;
     return (
       <div>
-        <Container className="line-graph-wrapper text-center" fluid>
+        <Container className="line-graph-wrapper text-center mt-3">
           <Row className="px-5">
             <Col md="6">
               <h5 className="text-left font-styles">Bitcoin</h5>
@@ -70,7 +74,7 @@ class ChartContainer extends Component {
             </Col>
           </Row>
         </Container>
-        <Container className="text-center mt-3" fluid>
+        <Container className="text-center mt-3">
           <Row className="mt-3">
             <Col className="bar-graph-wrapper" sm="12" md="6">
               <BarGraph chartData={chartData} chartLabels={chartLabels} />
