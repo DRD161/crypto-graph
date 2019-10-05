@@ -61,6 +61,7 @@ class BarGraph extends Component {
           }
         },
         responsive: true,
+        maintainAspectRatio: false,
         legend: {
           display: false
         },
@@ -106,9 +107,9 @@ class BarGraph extends Component {
 
   render() {
     return (
-      <div>
+      <section>
         <canvas id="myBarChart" ref={this.chart} />
-      </div>
+      </section>
     );
   }
 }

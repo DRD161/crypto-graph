@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { Container, Row, Col } from "reactstrap";
-import LineGraph from "./LineGraph";
+// import LineGraph from "./LineGraph";
 import BarGraph from "./BarGraph";
 
 import axios from "axios";
@@ -57,8 +57,8 @@ class ChartContainer extends Component {
     const { chartLabels } = this.state;
     const { singlePrice } = this.state;
     return (
-      <div>
-        <Container className="line-graph-wrapper text-center mt-3">
+      <section>
+        <Container fluid className="bar-graph-wrapper text-center mt-3">
           <Row className="px-5">
             <Col md="6">
               <h5 className="text-left font-styles">Bitcoin</h5>
@@ -70,18 +70,22 @@ class ChartContainer extends Component {
           </Row>
           <Row>
             <Col md="12">
-              <LineGraph chartData={chartData} chartLabels={chartLabels} />
-            </Col>
-          </Row>
-        </Container>
-        <Container className="text-center mt-3">
-          <Row className="mt-3">
-            <Col className="bar-graph-wrapper" sm="12" md="6">
               <BarGraph chartData={chartData} chartLabels={chartLabels} />
             </Col>
           </Row>
         </Container>
-      </div>
+        <Container fluid className="text-center mt-3">
+          <Row className="mt-3">
+            <Col className="card-wrapper" sm="12" md="4">
+              <div className="btc-wrapper d-flex justify-content-between align-items-center mb-4">
+                <i className="cf cf-btc-alt"></i>
+                <h4>Bitcoin</h4>
+              </div>
+              <h2 className="font-styles">Weekly Average</h2>
+            </Col>
+          </Row>
+        </Container>
+      </section>
     );
   }
 }

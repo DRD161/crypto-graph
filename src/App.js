@@ -6,9 +6,9 @@ import ChartContainer from "./components/ChartContainer";
 class App extends Component {
   render() {
     return (
-      <div className="App">
+      <main className="App">
         <ChartContainer />
-      </div>
+      </main>
     );
   }
 }

@@ -7,17 +7,8 @@ body {
   margin: auto;
 }
 
-#myLineChart {
-  height: 400px;
-}
-
-.line-graph-wrapper {
-  position: relative;
-  border-radius: 5px;
-  background-color: #252b38;
-  padding: 30px;
-  margin: 0;
-  box-shadow: -3px 5px 5px -1px #0f0f0f;
+#myBarChart {
+  height: 450px;
 }
 
 .bar-graph-wrapper {
@@ -25,9 +16,29 @@ body {
   border-radius: 5px;
   background-color: #252b38;
   padding: 30px;
-  margin: 0;
   box-shadow: -3px 5px 5px -1px #0f0f0f;
 }
+
+.card-wrapper {
+  border-radius: 5px;
+  background-color: #252b38;
+  padding: 30px;
+  box-shadow: -3px 5px 5px -1px #0f0f0f;
+}
+
+.cf.cf-btc-alt {
+  color: #f2a900;
+  font-size: 40px;
+}
+
+.btc-wrapper h4 {
+  color: #f2a900;
+  font-weight: 900;
+}
+
+/* .btc-wrapper {
+  display: flex;
+} */
 
 .font-styles {
   font-weight: 700;
