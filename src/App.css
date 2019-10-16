@@ -8,25 +8,21 @@ body {
 }
 
 #myBarChart {
-    height: 450px;
+    height: 380px;
 }
 
 .bar-graph-wrapper {
     position: relative;
-    border-radius: 5px;
-    background-color: #252b38;
-    padding: 30px;
-    box-shadow: -3px 5px 5px -1px #0f0f0f;
+    /* border-radius: 5px; */
+    /* background-color: #252b38; */
+    padding: 0 0 28px 0;
+    /* box-shadow: -3px 5px 5px -1px #0f0f0f; */
 }
-
-/* .custom-card-col {
-    max-width: 50% !important;
-} */
 
 .card-wrapper {
     border-radius: 5px;
     background-color: #252b38;
-    padding: 30px;
+    padding: 40px 0;
     box-shadow: -3px 5px 5px -1px #0f0f0f;
     max-width: 15% !important;
 }
@@ -38,21 +34,64 @@ body {
 .coin-name {
     margin-bottom: 0;
 }
-
-.btc-orange {
+/* Crypto font icon colors */
+.btc-orange,
+.cf-btc-alt {
     color: #f2a900;
 }
 
-.icon-large.cf.cf-btc-alt {
-    font-size: 40px;
+.cf-dash,
+.dash-blue {
+    color: #478aea;
 }
 
-.icon-small.cf.cf-btc-alt {
-    font-size: 25px;
+.cf-ltc,
+.ltc-gray {
+    color: #c0c0c0;
 }
+
+.cf-etc,
+.etc-purple {
+    color: #8a92b2;
+}
+
+.cf-xrp,
+.xrp-blue {
+    color: #3a80b1;
+}
+
+.cf-usdt,
+.usdt-green {
+    color: #68ac95;
+}
+/* END Crypto font icon colors */
+
+/* Crypto font icon sizes */
+.icon-large.cf-btc-alt {
+    font-size: 45px;
+}
+
+.icon-small.cf.cf-btc-alt,
+.icon-small.cf-dash,
+.icon-small.cf-ltc,
+.icon-small.cf-etc,
+.icon-small.cf-xrp,
+.icon-small.cf-usdt {
+    font-size: 35px;
+}
+/* END Crypto font icon sizes */
 
 .font-styles {
     color: #87889c;
+}
+
+button.purchase-btn {
+    width: 50%;
+    margin: 15px auto;
+    padding: 15px 0;
+    text-transform: uppercase;
+    background-image: linear-gradient(#75c6ff, #3e0b80);
+    border: none;
 }
 
 @media screen and (max-width: 1024px) {
