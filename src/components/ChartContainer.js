@@ -68,10 +68,12 @@ class ChartContainer extends Component {
                     <Row className="px-5">
                         <Col md="6">
                             <div className="btc-wrapper d-flex align-items-center mb-2">
-                                <i className="cf cf-btc-alt mr-3"></i>
-                                <h4 className="coin-name">Bitcoin</h4>
+                                <i className="btc-orange icon-large cf cf-btc-alt mr-3"></i>
+                                <h4 className="btc-orange coin-name">
+                                    Bitcoin
+                                </h4>
                             </div>
-                            <h2 className="text-left font-styles">
+                            <h2 className="font-weight-bold text-left font-styles">
                                 {singlePrice[2]}
                             </h2>
                         </Col>
@@ -90,14 +92,73 @@ class ChartContainer extends Component {
                         </Col>
                     </Row>
                 </Container>
-                <Container className="text-center mt-3">
-                    <Row className="mt-3">
-                        <Col className="card-wrapper" sm="12" md="2">
-                            <div className="btc-wrapper d-flex justify-content-between align-items-center mb-4">
-                                <i className="cf cf-btc-alt"></i>
-                                <h4 className="coin-name">Bitcoin</h4>
+                <Container fluid className="text-center mt-3">
+                    <Row className="mt-3 justify-content-between card-row">
+                        <Col className="card-wrapper custom-card-col col-xl-2 col-md-6">
+                            <div className="btc-wrapper d-flex justify-content-between align-items-center mb-2">
+                                <i className="btc-orange icon-small cf cf-btc-alt"></i>
+                                <h5 className="coin-name btc-orange">
+                                    Bitcoin
+                                </h5>
                             </div>
-                            <h5 className="font-styles">Current Price</h5>
+                            <p className="font-weight-bold font-styles">
+                                Current Price
+                            </p>
+                        </Col>
+                        <Col className="card-wrapper custom-card-col col-xl-2 col-md-6">
+                            <div className="btc-wrapper d-flex justify-content-between align-items-center mb-2">
+                                <i className="btc-orange icon-small cf cf-btc-alt"></i>
+                                <h5 className="coin-name btc-orange">
+                                    Bitcoin
+                                </h5>
+                            </div>
+                            <p className="font-weight-bold font-styles">
+                                Current Price
+                            </p>
+                        </Col>
+                        <Col className="card-wrapper custom-card-col col-xl-2 col-md-6">
+                            <div className="btc-wrapper d-flex justify-content-between align-items-center mb-2">
+                                <i className="btc-orange icon-small cf cf-btc-alt"></i>
+                                <h5 className="coin-name btc-orange">
+                                    Bitcoin
+                                </h5>
+                            </div>
+                            <p className="font-weight-bold font-styles">
+                                Current Price
+                            </p>
+                        </Col>
+                        <Col className="card-wrapper custom-card-col col-xl-2 col-md-6">
+                            <div className="btc-wrapper d-flex justify-content-between align-items-center mb-2">
+                                <i className="btc-orange icon-small cf cf-btc-alt"></i>
+                                <h5 className="coin-name btc-orange">
+                                    Bitcoin
+                                </h5>
+                            </div>
+                            <p className="font-weight-bold font-styles">
+                                Current Price
+                            </p>
+                        </Col>
+                        <Col className="card-wrapper custom-card-col col-xl-2 col-md-6">
+                            <div className="btc-wrapper d-flex justify-content-between align-items-center mb-2">
+                                <i className="btc-orange icon-small cf cf-btc-alt"></i>
+                                <h5 className="coin-name btc-orange">
+                                    Bitcoin
+                                </h5>
+                            </div>
+                            <p className="font-weight-bold font-styles">
+                                Current Price
+                            </p>
+                        </Col>
+                        <Col className="card-wrapper custom-card-col col-xl-2 col-md-6">
+                            <div className="btc-wrapper d-flex justify-content-between align-items-center mb-2">
+                                <i className="btc-orange icon-small cf cf-btc-alt"></i>
+                                <h5 className="coin-name btc-orange">
+                                    Bitcoin
+                                </h5>
+                            </div>
+                            <p className="font-weight-bold font-styles">
+                                Current Price
+                            </p>
                         </Col>
                     </Row>
                 </Container>

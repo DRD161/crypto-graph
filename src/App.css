@@ -19,30 +19,47 @@ body {
     box-shadow: -3px 5px 5px -1px #0f0f0f;
 }
 
+/* .custom-card-col {
+    max-width: 50% !important;
+} */
+
 .card-wrapper {
     border-radius: 5px;
     background-color: #252b38;
     padding: 30px;
     box-shadow: -3px 5px 5px -1px #0f0f0f;
+    max-width: 15% !important;
+}
+
+.card-row {
+    padding: 0 20px;
 }
 
 .coin-name {
     margin-bottom: 0;
 }
 
-.cf.cf-btc-alt {
+.btc-orange {
     color: #f2a900;
+}
+
+.icon-large.cf.cf-btc-alt {
     font-size: 40px;
 }
 
-.btc-wrapper h4 {
-    color: #f2a900;
-    font-weight: 900;
+.icon-small.cf.cf-btc-alt {
+    font-size: 25px;
 }
 
 .font-styles {
-    font-weight: 700;
     color: #87889c;
+}
+
+@media screen and (max-width: 1024px) {
+    .card-wrapper {
+        max-width: 45% !important;
+        margin-bottom: 15px;
+    }
 }
 
 @media screen and (max-width: 576px) {
