@@ -32,7 +32,6 @@ class ChartContainer extends Component {
         )
       ])
       .then(response => {
-        console.log(response[1].data.RAW.USDT.USD.HIGHDAY);
         // Coin data variables
         let btcPrice =
           "$" +
