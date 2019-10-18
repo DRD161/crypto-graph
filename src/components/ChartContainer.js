@@ -207,7 +207,10 @@ class ChartContainer extends Component {
             </Col>
           </Row>
         </Container>
-        <Container fluid className="d-flex justify-content-center mt-5">
+        <Container
+          fluid
+          className="d-flex justify-content-center mt-xs-3 mb-3 mt-md-5"
+        >
           <Col sm="12" md="8" className="d-flex justify-content-center px-0">
             <Row className="w-100">
               <Button
