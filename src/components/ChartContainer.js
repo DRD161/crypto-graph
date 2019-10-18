@@ -25,10 +25,10 @@ class ChartContainer extends Component {
       // call multiple API endpoints
       .all([
         axios.get(
-          "https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&aggregate=1&limit=6"
+          "https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&aggregate=1&limit=6&api_key=13deafbe04054f2950faff5dc43678eda26c37c84c156e8e559af203456d3b5a"
         ),
         axios.get(
-          "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,LTC,DASH,XRP,USDT&tsyms=USD"
+          "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,LTC,DASH,XRP,USDT&tsyms=USD&api_key=13deafbe04054f2950faff5dc43678eda26c37c84c156e8e559af203456d3b5a"
         )
       ])
       .then(response => {
@@ -110,13 +110,15 @@ class ChartContainer extends Component {
   }
 
   render() {
-    const { chartData } = this.state;
-    const { chartLabels } = this.state;
-    const { singlePrice } = this.state;
-    const { medianPrice } = this.state;
-    const { marketCap } = this.state;
-    const { currentPrice } = this.state;
-    const { dayHigh } = this.state;
+    const {
+      chartData,
+      chartLabels,
+      singlePrice,
+      medianPrice,
+      marketCap,
+      currentPrice,
+      dayHigh
+    } = this.state;
     return (
       <section>
         <Container fluid className="bar-graph-wrapper text-center mt-3">
