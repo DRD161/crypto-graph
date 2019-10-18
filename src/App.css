@@ -1,5 +1,14 @@
+html,
 body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+body,
+html {
   background-color: #1c2632 !important;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 .App {
