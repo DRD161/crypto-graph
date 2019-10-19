@@ -1,8 +1,16 @@
 import React, { Component } from "react";
-import { Container, Row, Col, Button } from "reactstrap";
-import BarGraph from "./BarGraph";
-
+import { Container, Row } from "reactstrap";
 import axios from "axios";
+
+import BarGraph from "./BarGraph";
+import BtcCard from "./BtcCard";
+import EthCard from "./EthCard";
+import LtcCard from "./LtcCard";
+import DashCard from "./DashCard";
+import UsdtCard from "./UsdtCard";
+import XrpCard from "./XrpCard";
+import BtcHeader from "./chartHeader";
+import BuyButton from "./Button";
 
 class ChartContainer extends Component {
   constructor(props) {
@@ -120,109 +128,19 @@ class ChartContainer extends Component {
     } = this.state;
     return (
       <section>
-        <Container fluid className="bar-graph-wrapper text-center mt-3">
-          <Row className="px-5">
-            <Col md="6">
-              <div className="btc-wrapper d-flex align-items-center mb-2">
-                <i className="btc-orange icon-large cf cf-btc-alt mr-3"></i>
-                <h4 className="btc-orange coin-name">Bitcoin</h4>
-              </div>
-              <h2 className="font-weight-bold text-left font-styles">
-                {singlePrice[2]}
-              </h2>
-            </Col>
-            <Col md="6" className="align-self-end">
-              <p className="align-left-mobile text-md-right font-styles">
-                Last 7 days:
-              </p>
-            </Col>
-          </Row>
-          <Row>
-            <Col md="12">
-              <BarGraph chartData={chartData} chartLabels={chartLabels} />
-            </Col>
-          </Row>
-        </Container>
+        <BtcHeader single={singlePrice[2]} />
+        <BarGraph chartData={chartData} chartLabels={chartLabels} />
         <Container fluid className="text-center">
           <Row className="justify-content-between card-row">
-            <Col md="6" xl="2" className="card-wrapper custom-card-col">
-              <div className="btc-wrapper d-flex justify-content-between align-items-center mb-3">
-                <i className="btc-orange icon-small cf cf-btc-alt"></i>
-                <h5 className="coin-name btc-orange">Bitcoin</h5>
-              </div>
-              <h5 className="font-weight-bold font-styles mb-4">
-                Median Price
-              </h5>
-              <p className="font-weight-bold font-styles">{medianPrice[3]}</p>
-            </Col>
-            <Col md="6" xl="2" className="card-wrapper custom-card-col">
-              <div className="btc-wrapper d-flex justify-content-between align-items-center mb-3">
-                <i className="etc-purple icon-small cf cf-etc"></i>
-                <h5 className="coin-name etc-purple">Ethereum</h5>
-              </div>
-              <h5 className="font-weight-bold font-styles mb-4">Market Cap</h5>
-              <p className="font-weight-bold font-styles">{marketCap[4]}</p>
-            </Col>
-            <Col md="6" xl="2" className="card-wrapper custom-card-col">
-              <div className="btc-wrapper d-flex justify-content-between align-items-center mb-3">
-                <i className="icon-small ltc-gray cf cf-ltc"></i>
-                <h5 className="coin-name ltc-gray">Litecoin</h5>
-              </div>
-              <h5 className="font-weight-bold font-styles mb-4">
-                Current Price
-              </h5>
-              <p className="font-weight-bold font-styles">{currentPrice[5]}</p>
-            </Col>
-            <Col md="6" xl="2" className="card-wrapper custom-card-col">
-              <div className="btc-wrapper d-flex justify-content-between align-items-center mb-3">
-                <i className="icon-small dash-blue icon-small cf cf-dash"></i>
-                <h5 className="coin-name dash-blue">Dash</h5>
-              </div>
-              <h5 className="font-weight-bold font-styles mb-4">
-                24 Hour High
-              </h5>
-              <p className="font-weight-bold font-styles">{dayHigh[6]}</p>
-            </Col>
-            <Col md="6" xl="2" className="card-wrapper custom-card-col">
-              <div className="btc-wrapper d-flex justify-content-between align-items-center mb-3">
-                <i className="xrp-blue icon-small cf cf-xrp"></i>
-                <h5 className="coin-name xrp-blue">Ripple</h5>
-              </div>
-              <h5 className="font-weight-bold font-styles mb-4">24 Hour Low</h5>
-              <p className="font-weight-bold font-styles">
-                {/* Not sure why dayHigh[7] is able to pull in the data for the 24 low for Ripple and Tether. Very confusing... I'll have to 
-                            look into this further. For now it works..I guess? */}
-                {dayHigh[7]}
-              </p>
-            </Col>
-            <Col md="6" xl="2" className="card-wrapper custom-card-col">
-              <div className="btc-wrapper d-flex justify-content-between align-items-center mb-3">
-                <i className="usdt-green icon-small cf cf-usdt"></i>
-                <h5 className="coin-name usdt-green">Tether</h5>
-              </div>
-              <h5 className="font-weight-bold font-styles mb-4">
-                Today's High
-              </h5>
-              <p className="font-weight-bold font-styles">{dayHigh[8]}</p>
-            </Col>
+            <BtcCard median={medianPrice[3]} />
+            <EthCard cap={marketCap[4]} />
+            <LtcCard current={currentPrice[5]} />
+            <DashCard high24Hr={dayHigh[6]} />
+            <XrpCard low24Hr={dayHigh[7]} />
+            <UsdtCard todaysHigh={dayHigh[8]} />
           </Row>
         </Container>
-        <Container
-          fluid
-          className="d-flex justify-content-center mt-xs-3 mb-3 mt-md-5"
-        >
-          <Col sm="12" md="8" className="d-flex justify-content-center px-0">
-            <Row className="w-100">
-              <Button
-                href="https://www.coinbase.com/"
-                color="primary"
-                className="purchase-btn font-weight-bold"
-              >
-                purchase coins
-              </Button>
-            </Row>
-          </Col>
-        </Container>
+        <BuyButton />
       </section>
     );
   }

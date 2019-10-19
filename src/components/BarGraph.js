@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Chart from "chart.js";
+import { Container, Row, Col } from "reactstrap";
 
 class BarGraph extends Component {
   constructor(props) {
@@ -107,9 +108,13 @@ class BarGraph extends Component {
 
   render() {
     return (
-      <section>
-        <canvas id="myBarChart" ref={this.chart} />
-      </section>
+      <Container fluid className="bar-graph-wrapper text-center mt-3">
+        <Row>
+          <Col md="12">
+            <canvas id="myBarChart" ref={this.chart} />
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
