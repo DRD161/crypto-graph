@@ -33,10 +33,10 @@ class ChartContainer extends Component {
       // call multiple API endpoints
       .all([
         axios.get(
-          "https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&aggregate=1&limit=6&api_key=13deafbe04054f2950faff5dc43678eda26c37c84c156e8e559af203456d3b5a"
+          "https://min-api.cryptocompare.com/data/histoday?fsym=BTC&tsym=USD&aggregate=1&limit=6&api_key=ENTER KEY HERE"
         ),
         axios.get(
-          "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,LTC,DASH,XRP,USDT&tsyms=USD&api_key=13deafbe04054f2950faff5dc43678eda26c37c84c156e8e559af203456d3b5a"
+          "https://min-api.cryptocompare.com/data/pricemultifull?fsyms=BTC,ETH,LTC,DASH,XRP,USDT&tsyms=USD&api_key=ENTER KEY HERE"
         )
       ])
       .then(response => {
