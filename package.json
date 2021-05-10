@@ -11,7 +11,7 @@
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
     "cryptofont": "^0.1.1",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "^3.3.0",
